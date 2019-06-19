@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='ru'>
+  <head>
+    <meta charset="UTF-8">
+    <title>VkBot</title>
+  </head>
+  <body>
+    <form>
+      <label>Текс сообщения<input id='text' type="text"/></label>
+      <br />
+      <label>id сообщества, только цифры<input id='id' type="number"/></label>
+      <br />
+      <input id='ok' type="submit" value="ok"/>
+    </form>
+    <script>
+      require("./renderer.js")
+      var BOT = require('./productVersion');
+      var text = document.getElementById('text').value;
+      var id = document.getElementById('id').value;
+      document.getElementById('ok').onclick = () => {
+        if(id){
+          BOT(text, id);
+        }
+        else{
+          BOT(text);
+        }
+      }
+    </script>
+  </body>
+</html>
